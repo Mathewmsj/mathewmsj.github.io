@@ -1,5 +1,5 @@
 <template>
-  <div class="home" :style="{ backgroundImage: backgroundImageUrl }">
+  <div class="home" :style="homeStyle">
     <div class="container">
       <div class="hero">
         <h1 class="welcome-title">Hi, I'm <span class="highlight">Sijia Ma</span></h1>
@@ -21,12 +21,14 @@
 <script setup>
 import { onMounted, computed } from 'vue'
 
-const baseUrl = computed(() => import.meta.env.BASE_URL)
-const backgroundImageUrl = computed(() => `url('${baseUrl.value}images/Personal Photo.jpeg')`)
+const baseUrl = import.meta.env.BASE_URL
+const homeStyle = computed(() => ({
+  backgroundImage: `url('${baseUrl}images/Personal Photo.jpeg')`
+}))
 
 onMounted(async () => {
   try {
-    const res = await fetch(`${baseUrl.value}data/projects.json`)
+    const res = await fetch(`${baseUrl}data/projects.json`)
     if (!res.ok) return
     const projects = await res.json()
     projects.forEach(p => {
@@ -34,7 +36,7 @@ onMounted(async () => {
         const img = new Image()
         // 修复图片路径，添加 BASE_URL 前缀
         const imagePath = p.image.startsWith('/images/')
-          ? `${baseUrl.value}images/${p.image.split('/images/')[1]}`
+          ? `${baseUrl}images/${p.image.split('/images/')[1]}`
           : p.image
         img.src = imagePath
         img.decoding = 'async'
