@@ -1,5 +1,5 @@
 <template>
-  <div class="home" :style="{ backgroundImage: `url('${import.meta.env.BASE_URL}images/Personal Photo.jpeg')` }">
+  <div class="home" :style="{ backgroundImage: `url('${baseUrl}images/Personal Photo.jpeg')` }">
     <div class="container">
       <div class="hero">
         <h1 class="welcome-title">Hi, I'm <span class="highlight">Sijia Ma</span></h1>
@@ -20,6 +20,8 @@
 
 <script setup>
 import { onMounted } from 'vue'
+
+const baseUrl = import.meta.env.BASE_URL
 
 onMounted(async () => {
   try {
