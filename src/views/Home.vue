@@ -1,5 +1,5 @@
 <template>
-  <div class="home" :style="{ backgroundImage: `url('${baseUrl}images/Personal Photo.jpeg')` }">
+  <div class="home" :style="{ backgroundImage: backgroundImageUrl }">
     <div class="container">
       <div class="hero">
         <h1 class="welcome-title">Hi, I'm <span class="highlight">Sijia Ma</span></h1>
@@ -19,13 +19,14 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
 
-const baseUrl = import.meta.env.BASE_URL
+const baseUrl = computed(() => import.meta.env.BASE_URL)
+const backgroundImageUrl = computed(() => `url('${baseUrl.value}images/Personal Photo.jpeg')`)
 
 onMounted(async () => {
   try {
-    const res = await fetch(`${import.meta.env.BASE_URL}data/projects.json`)
+    const res = await fetch(`${baseUrl.value}data/projects.json`)
     if (!res.ok) return
     const projects = await res.json()
     projects.forEach(p => {
@@ -33,7 +34,7 @@ onMounted(async () => {
         const img = new Image()
         // 修复图片路径，添加 BASE_URL 前缀
         const imagePath = p.image.startsWith('/images/')
-          ? `${import.meta.env.BASE_URL}images/${p.image.split('/images/')[1]}`
+          ? `${baseUrl.value}images/${p.image.split('/images/')[1]}`
           : p.image
         img.src = imagePath
         img.decoding = 'async'
