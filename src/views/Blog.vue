@@ -44,7 +44,7 @@ const error = ref(null)
 const fetchPosts = async () => {
   try {
     loading.value = true
-    const response = await fetch('/data/blog.json')
+    const response = await fetch(`${import.meta.env.BASE_URL}data/blog.json`)
     if (!response.ok) {
       throw new Error('Failed to fetch blog posts')
     }

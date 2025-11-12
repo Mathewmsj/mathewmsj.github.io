@@ -23,7 +23,7 @@ import { onMounted } from 'vue'
 
 onMounted(async () => {
   try {
-    const res = await fetch('/data/projects.json')
+    const res = await fetch(`${import.meta.env.BASE_URL}data/projects.json`)
     if (!res.ok) return
     const projects = await res.json()
     projects.forEach(p => {
