@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "name": "AI Agent for Intergenerational Communication",
+    "role": "Team Leader",
+    "time": "April 2025",
+    "description": "Designed an AI agent to improve intergenerational communication via WeChat. Integrated LLM-based features and presented in Moonshot Hackathon. The project helps bridge communication gaps between generations using intelligent conversation assistance.",
+    "technologies": ["Python", "LLM", "WeChat API", "Data Integration"],
+    "video": "https://youtu.be/vJgpagHTskc",
+    "image": "/images/Moonshot.png",
+    "contribution": "Led the team in designing the overall architecture, integrated LLM APIs, and developed the WeChat interface. Presented the project at the hackathon and received positive feedback."
+  },
+  {
+    "id": 2,
+    "name": "Wheel-Legged Robot Project",
+    "role": "Vice Leader, Developer",
+    "time": "Mar–Jun 2025",
+    "description": "Developed wheel-legged robots using PID tuning for balance and motion control. The robot can switch between wheel and leg modes for different terrains, demonstrating advanced control algorithms.",
+    "technologies": ["C++", "PID Control", "Serial Monitoring", "Arduino"],
+    "github": "https://github.com/Mathewmsj/Stack-Force-Bipedal-TwoWheel-Robot",
+    "image": "/images/Robot.jpg",
+    "contribution": "Developed the PID control algorithms for balance and motion, implemented serial communication protocols, and tested various control parameters to optimize performance."
+  },
+  {
+    "id": 3,
+    "name": "F18 Cockpit Central Control (PCB Project)",
+    "role": "Vice Leader, Engineer",
+    "time": "Mar 2025–Feb 2025",
+    "description": "Redesigned F-18 cockpit circuit using custom PCB to replace breadboard prototypes. The project involved circuit design, PCB layout, and hardware integration for a flight simulator cockpit.",
+    "technologies": ["KiCad", "PCB Design", "Hardware Engineering", "Circuit Design"],
+    "image": "/images/PCB.png",
+    "contribution": "Designed the PCB layout in KiCad, optimized circuit routing for signal integrity, and managed the hardware integration process. The custom PCB significantly improved reliability compared to breadboard prototypes."
+  },
+  {
+    "id": 4,
+    "name": "Physics Teaching Aids",
+    "role": "Project Founder",
+    "time": "Apr 2025–Present",
+    "description": "Designed low-cost tools to visualize the Coriolis Effect and improve physics learning. The project aims to make abstract physics concepts more tangible through hands-on demonstrations.",
+    "technologies": ["3D Design", "Arduino", "Education Design", "Physics Simulation"],
+    "image": "/images/Captone.png",
+    "contribution": "Conceived the project idea, designed the 3D models for the teaching aids, integrated Arduino sensors for data collection, and tested the effectiveness in educational settings."
+  },
+  {
+    "id": 5,
+    "name": "Food Expiration Prevention Device",
+    "role": "Hardware Developer",
+    "time": "Mar 2024–Apr 2025",
+    "description": "Created a fridge layout and Arduino alert system for food expiration reminders. The device monitors food items and sends notifications to prevent waste.",
+    "technologies": ["Arduino", "App Design", "Sensor Integration", "IoT"],
+    "image": "https://images.unsplash.com/photo-1506617420156-8e4536971650?auto=format&fit=crop&w=1200&q=80",
+    "contribution": "Developed the hardware components including sensor integration, designed the Arduino firmware for monitoring, and created the mobile app interface for notifications."
+  },
+  {
+    "id": 6,
+    "name": "Gomoku Ultra: Strategic Battle Game",
+    "role": "Developer, Game Designer",
+    "time": "Mar–Jun 2024",
+    "description": "Enhanced Gomoku with special pieces and strategic rules, implemented in Java. The game features unique gameplay mechanics that add depth to the classic board game.",
+    "technologies": ["Java", "Game Design", "Git", "Object-Oriented Programming"],
+    "github": "https://github.com/Mathewmsj",
+    "image": "/images/Gomoku.png",
+    "contribution": "Designed the game mechanics, implemented the core game logic in Java, created the user interface, and managed version control using Git."
+  }
+]
+

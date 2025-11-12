@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Python",
+    "level": 90,
+    "category": "Programming Language"
+  },
+  {
+    "name": "JavaScript",
+    "level": 80,
+    "category": "Programming Language"
+  },
+  {
+    "name": "Vue.js",
+    "level": 75,
+    "category": "Framework"
+  },
+  {
+    "name": "Arduino/C++",
+    "level": 85,
+    "category": "Hardware Programming"
+  },
+  {
+    "name": "Java",
+    "level": 70,
+    "category": "Programming Language"
+  },
+  {
+    "name": "HTML/CSS",
+    "level": 80,
+    "category": "Web Development"
+  },
+  {
+    "name": "PCB Design (KiCad)",
+    "level": 75,
+    "category": "Hardware Design"
+  },
+  {
+    "name": "3D Design",
+    "level": 70,
+    "category": "Design"
+  },
+  {
+    "name": "Robotics",
+    "level": 80,
+    "category": "Engineering"
+  },
+  {
+    "name": "AI/ML",
+    "level": 75,
+    "category": "Technology"
+  }
+]
+

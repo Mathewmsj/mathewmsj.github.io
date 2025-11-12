@@ -1,0 +1,266 @@
+<template>
+  <div class="about">
+    <div class="container">
+      <h1 class="page-title">About Me</h1>
+      
+      <div class="content-section">
+        <div class="text-content">
+          <h2>Personal Aspirations</h2>
+          <p>
+            I believe in the power of technology to create positive change. Through my projects in AI, 
+            robotics, and hardware engineering, I aim to bridge the gap between innovative ideas and 
+            practical solutions that make a real difference in people's lives.
+          </p>
+        </div>
+        
+      </div>
+      <div class="basic-info">
+        <section class="education-section">
+          <h2>Education</h2>
+          <div class="education-card">
+            <h3>Hangzhou Yungu School</h3>
+            <p class="period">2023 – 2026</p>
+            <p class="gpa"><strong>GPA:</strong> 3.99</p>
+            <div class="courses">
+              <h4>Relevant Courses:</h4>
+              <ul>
+                <li>CL/AP Python</li>
+                <li>Computer Science</li>
+                <li>Physics C</li>
+                <li>Statistics</li>
+                <li>Calculus</li>
+                <li>Business Studies</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="skills-section">
+          <h2>Technical Skills</h2>
+          <div class="skill-bars">
+            <div v-for="skill in skills" :key="skill.name" class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">{{ skill.name }}</span>
+                <span class="skill-level">{{ skill.level }}%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" :style="{ width: skill.level + '%' }" :data-level="skill.level"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="awards-section">
+          <h2>Awards & Achievements</h2>
+          <div class="awards-grid">
+            <div v-for="award in awards" :key="award.id" class="award-card">
+              <div class="award-category">{{ award.category }}</div>
+              <h3>{{ award.title }}</h3>
+              <p>{{ award.description }}</p>
+              <span class="award-year">{{ award.year }}</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="skills-tags-section">
+          <h2>Skills & Interests</h2>
+          <div class="tags">
+            <span class="tag">Vue.js</span>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">Arduino</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">AI</span>
+            <span class="tag">Physics</span>
+            <span class="tag">Leadership</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Hardware Engineering</span>
+            <span class="tag">PCB Design</span>
+            <span class="tag">3D Design</span>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const skills = ref([
+  { name: 'Python', level: 90 },
+  { name: 'JavaScript', level: 80 },
+  { name: 'Vue.js', level: 75 },
+  { name: 'Arduino/C++', level: 85 },
+  { name: 'Java', level: 70 },
+  { name: 'HTML/CSS', level: 80 }
+])
+
+const awards = ref([
+  { id: 1, category: 'Mathematics', title: 'AMC 12', description: 'Top 5% Global', year: '2024' },
+  { id: 2, category: 'Mathematics', title: 'UKMT Senior Math Challenge', description: 'Global Gold & Best in Year', year: '2024' },
+  { id: 3, category: 'Science', title: 'Science & Tech Innovation', description: 'Lanzhou City 1st, Gansu Province 3rd', year: '2024' },
+  { id: 4, category: 'Engineering', title: 'Destination Imagination', description: 'Engineering Award (China)', year: '2024' },
+  { id: 5, category: 'Scholarship', title: 'Creativity Scholarship', description: '¥10,000, Yungu School', year: '2023' }
+])
+
+onMounted(() => {
+  setTimeout(() => {
+    const progressBars = document.querySelectorAll('.skill-progress')
+    progressBars.forEach(bar => {
+      const level = bar.getAttribute('data-level')
+      bar.style.width = '0%'
+      setTimeout(() => {
+        bar.style.width = level + '%'
+      }, 100)
+    })
+  }, 100)
+})
+</script>
+
+<style scoped>
+.about {
+  min-height: calc(100vh - 200px);
+  padding: 2rem 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.content-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.text-content {
+  margin-bottom: 2rem;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+p {
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.tag {
+  background: #f0f0f0;
+  color: #2c3e50;
+  padding: 0.5rem 1rem;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: transform 0.2s;
+}
+
+.tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+@media (max-width: 768px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .content-section {
+    padding: 1.5rem;
+  }
+
+  .intro-text {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Basic Info merged blocks */
+.basic-info {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.skills-section,
+.education-section,
+.awards-section,
+.skills-tags-section {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.skills-section h2,
+.education-section h2,
+.awards-section h2,
+.skills-tags-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.skill-item { margin-bottom: 0.75rem; }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 0.4rem; }
+.skill-name { font-weight: 600; color: #2c3e50; }
+.skill-level { color: #42b883; font-weight: 600; }
+.skill-bar { height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden; }
+.skill-progress { height: 100%; background: #42b883; border-radius: 4px; transition: width .8s ease-in-out; }
+
+.education-card { background: #f8f9fa; padding: 1rem; border-radius: 8px; border-left: 4px solid #42b883; }
+.education-card h3 { color: #2c3e50; margin-bottom: 0.25rem; }
+.period { color: #666; font-style: italic; margin-bottom: 0.25rem; }
+.gpa { margin-bottom: 0.5rem; color: #555; }
+.courses { margin-top: 0.75rem; }
+.courses h4 { color: #2c3e50; margin-bottom: 0.5rem; font-size: 1rem; }
+.courses ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.4rem; }
+.courses li { padding: 0.4rem; background: white; border-radius: 5px; color: #555; }
+
+.awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0.75rem; }
+.award-card { background: #fff; border: 1px solid #e0e0e0; padding: 1rem; border-radius: 8px; transition: all .2s; border-left: 3px solid #42b883; }
+.award-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.08); border-left-color: #35a372; }
+.award-category { font-size: .7rem; text-transform: uppercase; letter-spacing: .8px; color: #42b883; font-weight: 600; margin-bottom: .4rem; }
+.award-card h3 { color: #2c3e50; margin-bottom: .4rem; font-size: 1.05rem; font-weight: 600; }
+.award-card p { color: #666; margin-bottom: .5rem; line-height: 1.55; }
+.award-year { display: inline-block; color: #999; font-size: .8rem; font-weight: 500; }
+
+@media (max-width: 768px) {
+  .basic-info { gap: .75rem; }
+  .skills-section, .education-section, .awards-section, .skills-tags-section { padding: 1rem; }
+}
+</style>
+

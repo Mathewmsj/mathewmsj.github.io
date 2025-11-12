@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "title": "Drumming & Band",
+    "timing": "All year",
+    "hoursPerWeek": "5h per week",
+    "period": "All year",
+    "totalHours": null,
+    "description": "Started at 5, earned China’s highest certificate at 15; 8+ performances; led own band senior year.",
+    "car": {
+      "challenge": "Build performance mastery and stage presence over years of training.",
+      "action": "Daily practice, learned improvisation, joined and led school band, organized performances.",
+      "result": "Passed Level 10 certificate; 8+ shows; leadership and collaboration demonstrated."
+    }
+  },
+  {
+    "id": 2,
+    "title": "Weekly Activity (All year)",
+    "timing": "All year",
+    "hoursPerWeek": "2h per week",
+    "period": "All year",
+    "totalHours": null,
+    "description": "Ongoing weekly commitment developing skills and consistency across the school year.",
+    "car": {
+      "challenge": "Balance academics and long-term skill development.",
+      "action": "Dedicated recurring time each week; tracked goals and milestones.",
+      "result": "Sustained progress and output without impacting academics."
+    }
+  },
+  {
+    "id": 3,
+    "title": "Peer Collaboration Platform Research",
+    "timing": "During school year",
+    "hoursPerWeek": null,
+    "period": "2023",
+    "totalHours": "50 hour total",
+    "description": "Co-founded platform concept to help peers find resources and collaborators; completed research paper.",
+    "car": {
+      "challenge": "Peers lacked a way to find collaborators and resources.",
+      "action": "Formed team, did user research, scoped features, and wrote research paper.",
+      "result": "Clear problem definition and validated solution concept documented in paper."
+    }
+  },
+  {
+    "id": 4,
+    "title": "Food Expiration Reminder Demo",
+    "timing": "During school year",
+    "hoursPerWeek": null,
+    "period": "2023",
+    "totalHours": "50 hour total",
+    "description": "Identified food waste; built app concept and hardware demo for expiration reminders via sensors & light.",
+    "car": {
+      "challenge": "Food waste from forgotten items.",
+      "action": "Surveys, defined spec; built app concept; prototyped hardware reminder light.",
+      "result": "Working demos and user insights to reduce waste."
+    }
+  },
+  {
+    "id": 5,
+    "title": "Academic Week AI Talk",
+    "timing": "Single event",
+    "hoursPerWeek": null,
+    "period": "2024.12",
+    "totalHours": "80 hour total",
+    "description": "Sole student speaker; shared AI insights to 500+ offline and 20,000 online; refined speech for 4 weeks.",
+    "car": {
+      "challenge": "Communicate AI insights to broad audience effectively.",
+      "action": "Iterated speech for weeks; rehearsed delivery; engaged diverse attendees.",
+      "result": "Reached 20k+ online and 500+ offline with strong feedback."
+    }
+  },
+  {
+    "id": 6,
+    "title": "Skiing Training",
+    "timing": "During school break",
+    "hoursPerWeek": null,
+    "period": "2025.1",
+    "totalHours": "50 hour total",
+    "description": "Winter ski immersion in northwest China; trained both skis and snowboard; built perseverance.",
+    "car": {
+      "challenge": "Master snowboarding from scratch in limited time.",
+      "action": "Intensive daily practice, repeated falls, reviewed technique.",
+      "result": "Rapid skill gains; resilience strengthened."
+    }
+  },
+  {
+    "id": 7,
+    "title": "Symphony Orchestra Percussion Lead",
+    "timing": "During school year",
+    "hoursPerWeek": null,
+    "period": "2023–2024",
+    "totalHours": "70 hour total",
+    "description": "Led percussion; performed timpani, snare, bass drum in two small and one large concert.",
+    "car": {
+      "challenge": "Coordinate percussion section for multiple performances.",
+      "action": "Section leadership, rehearsals, arrangement coordination.",
+      "result": "Successful concerts; tighter ensemble performance."
+    }
+  },
+  {
+    "id": 8,
+    "title": "Capstone: Physics Teaching Aids",
+    "timing": "During school year",
+    "hoursPerWeek": null,
+    "period": "2024",
+    "totalHours": null,
+    "description": "Created hands-on aids with teacher to explain abstract physics; iterated on student feedback.",
+    "car": {
+      "challenge": "Peers struggled with abstract physics concepts.",
+      "action": "Identified needs; designed and 3D printed aids; classroom tests.",
+      "result": "Improved comprehension; positive feedback from students."
+    }
+  },
+  {
+    "id": 9,
+    "title": "Moonshot Hackathon: AI for Aging",
+    "timing": "Single event",
+    "hoursPerWeek": null,
+    "period": "48 hours",
+    "totalHours": "48 hour total",
+    "description": "Led 5-person team to build AI solution addressing elderly isolation and intergenerational gaps in 48h.",
+    "car": {
+      "challenge": "Bridge aging-related communication gaps fast.",
+      "action": "Team research; LLM + data features; rapid prototyping.",
+      "result": "Working demo; clear problem framing and impact narrative."
+    }
+  },
+  {
+    "id": 10,
+    "title": "Wheel-Legged Robot & Competition",
+    "timing": "During school year",
+    "hoursPerWeek": "2h per week",
+    "period": "All year",
+    "totalHours": null,
+    "description": "Built wheel-legged robot from open-source; learned control; competed at Alibaba Sports Games showcase.",
+    "car": {
+      "challenge": "Achieve stable mobility with limited resources.",
+      "action": "Adapted designs, tuned control, iterative testing.",
+      "result": "Functional robot; competition experience and visibility."
+    }
+  }
+]
+
+
+
