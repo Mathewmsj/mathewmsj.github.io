@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "title": "From Trial and Error to Innovation",
+    "date": "2025-04-10",
+    "content": "In every failed experiment lies a hint of discovery. My journey from robotics burnout to functional design taught me that persistence beats perfection.\n\nWhen I first started working on the wheel-legged robot project, I faced countless failures. The robot would tip over, the PID parameters were all wrong, and nothing seemed to work. But each failure taught me something new about control systems, about balance, and about the importance of systematic debugging.\n\nThe breakthrough came when I stopped trying to perfect everything at once and instead focused on one subsystem at a time. This approach of iterative improvement, of learning from each mistake, has become central to how I approach all my projects now.\n\nInnovation isn't about getting it right the first time—it's about having the courage to fail, learn, and try again."
+  },
+  {
+    "id": 2,
+    "title": "Building AI for the Elderly: Lessons from the Hackathon",
+    "date": "2025-05-02",
+    "content": "During the Moonshot Hackathon, our team built an AI agent to bridge intergenerational gaps on WeChat. Here's what we learned about empathy in tech.\n\nThe initial idea was simple: use AI to help older adults communicate more effectively with younger generations. But as we developed the project, we realized that technology alone isn't enough. We needed to understand the real challenges people face in intergenerational communication.\n\nThrough user interviews and testing, we discovered that the biggest barrier wasn't technical—it was emotional. Older adults often felt intimidated by new technology, and younger people sometimes lacked patience. Our AI agent needed to address both sides of this equation.\n\nThe hackathon taught me that the best technology solutions come from truly understanding the people you're trying to help. It's not just about writing code—it's about empathy, listening, and designing with real users in mind."
+  },
+  {
+    "id": 3,
+    "title": "The Art of PCB Design: From Breadboard to Production",
+    "date": "2025-03-15",
+    "content": "Transitioning from breadboard prototypes to custom PCBs was a game-changer for the F-18 cockpit project. Here's what I learned about professional hardware design.\n\nBreadboards are great for prototyping, but they have limitations. Signal integrity issues, loose connections, and the sheer mess of wires made our cockpit project unreliable. We needed something more professional.\n\nLearning KiCad was challenging at first. The software has a steep learning curve, but the investment paid off. I learned about proper component placement, trace routing, ground planes, and how to design for manufacturability.\n\nThe moment we received our first custom PCB and it worked perfectly on the first try was incredibly satisfying. It showed me the value of proper design tools and following best practices in hardware engineering.\n\nNow, whenever I start a new hardware project, I think about the PCB from the beginning. It saves time, improves reliability, and makes the final product look professional."
+  },
+  {
+    "id": 4,
+    "title": "Making Physics Tangible: The Teaching Aids Project",
+    "date": "2025-04-25",
+    "content": "Abstract concepts become concrete when students can see and touch them. That's the philosophy behind my physics teaching aids project.\n\nThe Coriolis Effect is notoriously difficult to teach. It's an abstract concept that students struggle to visualize. I wanted to create something that would make it tangible—something students could interact with and see in action.\n\nUsing 3D printing and Arduino sensors, I built a demonstration device that shows the Coriolis Effect in real-time. Students can spin the device, see the data change, and understand the physics through hands-on experimentation.\n\nThe project is still ongoing, but the initial feedback from teachers and students has been incredibly positive. It's shown me that sometimes the best way to learn is by doing, and that technology can be a powerful tool for education when designed with empathy and understanding.\n\nI'm excited to continue developing more teaching aids for other challenging physics concepts. The goal is to make learning more accessible and engaging for everyone."
+  }
+]
+
