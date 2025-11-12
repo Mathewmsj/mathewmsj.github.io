@@ -19,12 +19,12 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const baseUrl = import.meta.env.BASE_URL
-const homeStyle = computed(() => ({
+const homeStyle = ref({
   backgroundImage: `url('${baseUrl}images/Personal Photo.jpeg')`
-}))
+})
 
 onMounted(async () => {
   try {
