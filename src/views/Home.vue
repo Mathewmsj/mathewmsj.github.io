@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" :style="{ backgroundImage: `url('${import.meta.env.BASE_URL}images/Personal Photo.jpeg')` }">
     <div class="container">
       <div class="hero">
         <h1 class="welcome-title">Hi, I'm <span class="highlight">Sijia Ma</span></h1>
@@ -29,7 +29,11 @@ onMounted(async () => {
     projects.forEach(p => {
       if (p.image) {
         const img = new Image()
-        img.src = p.image
+        // 修复图片路径，添加 BASE_URL 前缀
+        const imagePath = p.image.startsWith('/images/')
+          ? `${import.meta.env.BASE_URL}images/${p.image.split('/images/')[1]}`
+          : p.image
+        img.src = imagePath
         img.decoding = 'async'
       }
     })
@@ -45,7 +49,6 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   background: #2c3e50;
-  background-image: url('/images/Personal Photo.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

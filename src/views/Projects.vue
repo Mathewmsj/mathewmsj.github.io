@@ -97,7 +97,13 @@ const fetchProjects = async () => {
       throw new Error('Failed to fetch projects')
     }
     const data = await response.json()
-    projects.value = data
+    // 修复图片路径，添加 BASE_URL 前缀
+    projects.value = data.map(project => ({
+      ...project,
+      image: project.image && project.image.startsWith('/images/') 
+        ? `${import.meta.env.BASE_URL}images/${project.image.split('/images/')[1]}`
+        : project.image
+    }))
   } catch (err) {
     error.value = 'Failed to load projects. Please try again later.'
     console.error('Error fetching projects:', err)

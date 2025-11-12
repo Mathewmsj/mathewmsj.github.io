@@ -104,7 +104,13 @@ const fetchProject = async () => {
     const foundProject = data.find(p => p.id === parseInt(route.params.id))
     
     if (foundProject) {
-      project.value = foundProject
+      // 修复图片路径，添加 BASE_URL 前缀
+      project.value = {
+        ...foundProject,
+        image: foundProject.image && foundProject.image.startsWith('/images/')
+          ? `${import.meta.env.BASE_URL}images/${foundProject.image.split('/images/')[1]}`
+          : foundProject.image
+      }
     } else {
       error.value = 'Project not found'
     }
