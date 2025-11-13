@@ -2,16 +2,16 @@
   <div class="blog-post">
     <div class="container">
       <div v-if="loading" class="loading">
-        <p>Loading post...</p>
+        <p>{{ siteConfig.messages.loading.post }}</p>
       </div>
       
       <div v-else-if="error" class="error">
         <p>{{ error }}</p>
-        <router-link to="/blog" class="btn-back">← Back to Blog</router-link>
+        <router-link to="/blog" class="btn-back">{{ siteConfig.messages.buttons.backToBlog }}</router-link>
       </div>
       
       <article v-else-if="post" class="post-content">
-        <button @click="goBack" class="btn-back">← Back to Blog</button>
+        <button @click="goBack" class="btn-back">{{ siteConfig.messages.buttons.backToBlog }}</button>
         
         <header class="post-header">
           <h1>{{ post.title }}</h1>
@@ -29,6 +29,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { siteConfig } from '../config/site.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -52,7 +53,7 @@ const fetchPost = async () => {
       error.value = 'Post not found'
     }
   } catch (err) {
-    error.value = 'Failed to load post. Please try again later.'
+    error.value = siteConfig.messages.error.post
     console.error('Error fetching post:', err)
   } finally {
     loading.value = false

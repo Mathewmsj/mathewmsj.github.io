@@ -2,16 +2,16 @@
   <div class="project-detail">
     <div class="container">
       <div v-if="loading" class="loading">
-        <p>Loading project details...</p>
+        <p>{{ siteConfig.messages.loading.projectDetails }}</p>
       </div>
       
       <div v-else-if="error" class="error">
         <p>{{ error }}</p>
-        <router-link to="/projects" class="btn-back">← Back to Projects</router-link>
+        <router-link to="/projects" class="btn-back">{{ siteConfig.messages.buttons.backToProjects }}</router-link>
       </div>
       
       <div v-else-if="project" class="project-detail-content">
-        <button @click="goBack" class="btn-back">← Back to Projects</button>
+        <button @click="goBack" class="btn-back">{{ siteConfig.messages.buttons.backToProjects }}</button>
         
         <div class="project-header">
           <h1>{{ project.name }}</h1>
@@ -28,7 +28,7 @@
             target="_blank" 
             class="link-btn-below github"
           >
-            View on GitHub →
+            {{ siteConfig.messages.buttons.viewOnGitHub }}
           </a>
         </div>
         
@@ -65,7 +65,7 @@
                 target="_blank" 
                 class="link-btn demo"
               >
-                Live Demo →
+                {{ siteConfig.messages.buttons.liveDemo }}
               </a>
               <a 
                 v-if="project.video" 
@@ -73,7 +73,7 @@
                 target="_blank" 
                 class="link-btn video"
               >
-                Watch Video →
+                {{ siteConfig.messages.buttons.watchVideo }}
               </a>
             </div>
           </div>
@@ -86,6 +86,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { siteConfig } from '../config/site.js'
 
 const router = useRouter()
 const route = useRoute()
@@ -115,7 +116,7 @@ const fetchProject = async () => {
       error.value = 'Project not found'
     }
   } catch (err) {
-    error.value = 'Failed to load project details. Please try again later.'
+    error.value = siteConfig.messages.error.projectDetails
     console.error('Error fetching project:', err)
   } finally {
     loading.value = false

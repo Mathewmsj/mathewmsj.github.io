@@ -1,10 +1,10 @@
 <template>
   <div class="blog">
     <div class="container">
-      <h1 class="page-title">Blog & Journal</h1>
+      <h1 class="page-title">{{ siteConfig.pageTitles.blog }}</h1>
       
       <div v-if="loading" class="loading">
-        <p>Loading blog posts...</p>
+        <p>{{ siteConfig.messages.loading.blogPosts }}</p>
       </div>
       
       <div v-else-if="error" class="error">
@@ -24,7 +24,7 @@
           </div>
           <p class="blog-excerpt">{{ getExcerpt(post.content) }}</p>
           <div class="blog-footer">
-            <span class="read-more">Read more →</span>
+            <span class="read-more">{{ siteConfig.messages.buttons.readMore }}</span>
           </div>
         </article>
       </div>
@@ -35,6 +35,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { siteConfig } from '../config/site.js'
 
 const router = useRouter()
 const posts = ref([])
@@ -51,7 +52,7 @@ const fetchPosts = async () => {
     const data = await response.json()
     posts.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
   } catch (err) {
-    error.value = 'Failed to load blog posts. Please try again later.'
+    error.value = siteConfig.messages.error.blogPosts
     console.error('Error fetching blog posts:', err)
   } finally {
     loading.value = false

@@ -1,10 +1,10 @@
 <template>
   <div class="projects">
     <div class="container">
-      <h1 class="page-title">My Projects</h1>
+      <h1 class="page-title">{{ siteConfig.pageTitles.projects }}</h1>
       
       <div v-if="loading" class="loading">
-        <p>Loading projects...</p>
+        <p>{{ siteConfig.messages.loading.projects }}</p>
       </div>
       
       <div v-else-if="error" class="error">
@@ -52,7 +52,7 @@
                 class="project-link"
                 @click.stop
               >
-                GitHub →
+                {{ siteConfig.messages.buttons.github }}
               </a>
               <a 
                 v-if="project.video && !project.github" 
@@ -61,7 +61,7 @@
                 class="project-link"
                 @click.stop
               >
-                Video →
+                {{ siteConfig.messages.buttons.video }}
               </a>
               <a 
                 v-if="project.demo" 
@@ -70,7 +70,7 @@
                 class="project-link"
                 @click.stop
               >
-                Live Demo →
+                {{ siteConfig.messages.buttons.liveDemo }}
               </a>
             </div>
           </div>
@@ -83,6 +83,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { siteConfig } from '../config/site.js'
 
 const router = useRouter()
 const projects = ref([])
@@ -105,7 +106,7 @@ const fetchProjects = async () => {
         : project.image
     }))
   } catch (err) {
-    error.value = 'Failed to load projects. Please try again later.'
+    error.value = siteConfig.messages.error.projects
     console.error('Error fetching projects:', err)
   } finally {
     loading.value = false

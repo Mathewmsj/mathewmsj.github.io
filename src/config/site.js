@@ -103,6 +103,40 @@ export const siteConfig = {
     wechat: '+8618193137195'
   },
 
+  // 页面标题
+  pageTitles: {
+    home: 'Home',
+    about: 'About Me',
+    projects: 'My Projects',
+    blog: 'Blog & Journal'
+  },
+
+  // UI 消息文本
+  messages: {
+    loading: {
+      projects: 'Loading projects...',
+      projectDetails: 'Loading project details...',
+      blogPosts: 'Loading blog posts...',
+      post: 'Loading post...'
+    },
+    error: {
+      projects: 'Failed to load projects. Please try again later.',
+      projectDetails: 'Failed to load project details. Please try again later.',
+      blogPosts: 'Failed to load blog posts. Please try again later.',
+      post: 'Failed to load post. Please try again later.'
+    },
+    buttons: {
+      backToProjects: '← Back to Projects',
+      backToBlog: '← Back to Blog',
+      viewOnGitHub: 'View on GitHub →',
+      watchVideo: 'Watch Video →',
+      liveDemo: 'Live Demo →',
+      readMore: 'Read more →',
+      github: 'GitHub →',
+      video: 'Video →'
+    }
+  },
+
   // 网站元信息
   meta: {
     title: 'Sijia Ma - Personal Portfolio',
