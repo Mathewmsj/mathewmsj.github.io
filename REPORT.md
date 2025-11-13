@@ -18,12 +18,13 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 │   ├── assets/                # Static assets
 │   ├── components/
 │   │   └── Navbar.vue         # Persistent navigation component
+│   ├── config/
+│   │   └── site.js            # Site configuration (personal info, navigation, etc.)
 │   ├── router/
 │   │   └── index.js          # Vue Router configuration
 │   ├── views/
 │   │   ├── Home.vue          # Homepage with welcome message
-│   │   ├── About.vue         # Personal introduction page
-│   │   ├── Skills.vue        # Skills and resume page
+│   │   ├── About.vue         # Personal introduction page (includes Skills/Resume content)
 │   │   ├── Projects.vue      # Projects list page
 │   │   ├── ProjectDetail.vue # Individual project detail page
 │   │   ├── Blog.vue          # Blog posts list page
@@ -32,6 +33,9 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 │   ├── App.vue               # Root component
 │   ├── main.js               # Application entry point
 │   └── style.css             # Global styles
+├── .github/
+│   └── workflows/
+│       └── deploy.yml        # GitHub Actions deployment workflow
 ├── index.html                # HTML entry point
 ├── package.json              # Dependencies and scripts
 ├── vite.config.js           # Vite configuration
@@ -63,18 +67,27 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 #### `src/router/index.js`
 - **Purpose:** Vue Router configuration
 - **Key Features:**
-  - Defines all routes: Home, About, Skills, Projects, ProjectDetail, Blog, BlogPost, Links
-  - Uses `createWebHistory` for clean URLs (no hash)
+  - Defines all routes: Home, About, Projects, ProjectDetail, Blog, BlogPost, Links
+  - Uses `createWebHashHistory` for GitHub Pages compatibility (avoids 404 errors)
   - Enables props for dynamic routes (ProjectDetail, BlogPost)
 - **Routes:**
   - `/` → Home
-  - `/about` → About
-  - `/skills` → Skills
+  - `/about` → About (includes Skills/Resume content)
   - `/projects` → Projects (list)
   - `/projects/:id` → ProjectDetail (dynamic)
   - `/blog` → Blog (list)
   - `/blog/:id` → BlogPost (dynamic)
   - `/links` → Links
+
+#### `src/config/site.js`
+- **Purpose:** Centralized site configuration file
+- **Key Features:**
+  - Stores all personal information (name, title, description, avatar)
+  - Contains navigation menu items
+  - Includes About page content (education, skills, awards, interests)
+  - Stores Links page data
+  - Contains site meta information
+- **Benefits:** Easy to update site content without modifying components
 
 ### Components
 
@@ -99,21 +112,20 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 - **Data Source:** Static content
 
 #### `src/views/About.vue`
-- **Purpose:** Detailed personal introduction and story
+- **Purpose:** Detailed personal introduction, skills, education, and awards
 - **Key Features:**
-  - Personal statement and interests
-  - Academic interests and goals
-  - Skills tags display
-- **Data Source:** Static content
+  - Personal aspirations statement
+  - Education section (school, period, GPA, courses)
+  - Technical skills with animated progress bars
+  - Awards & Achievements grid
+  - Skills & Interests tags
+  - All data loaded from `siteConfig`
+- **Data Source:** `src/config/site.js`
 
 #### `src/views/Skills.vue`
-- **Purpose:** Display technical skills, education, and awards
-- **Key Features:**
-  - Animated skill progress bars (Python, JavaScript, Vue.js, etc.)
-  - Education section with GPA and courses
-  - Awards grid with icons and descriptions
-  - Skills animate on component mount
-- **Data Source:** Static data (hardcoded in component)
+- **Purpose:** (Note: Skills content has been integrated into About.vue)
+- **Status:** File exists but is not currently used in routing
+- **Note:** All skills, education, and awards are now displayed in the About page
 
 #### `src/views/Projects.vue`
 - **Purpose:** Display list of all projects in card format
@@ -161,10 +173,11 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 #### `src/views/Links.vue`
 - **Purpose:** Display external links and resources
 - **Key Features:**
-  - Three sections: My Profiles, Favorite Learning Resources, Inspirational Developers
-  - Each link shows icon, title, and description
+  - Displays links in responsive grid layout
+  - Each link shows title, description, and arrow indicator
   - Links open in new tab
-- **Data Source:** Static data (hardcoded in component)
+  - Hover effects with smooth transitions
+- **Data Source:** `src/config/site.js` (siteConfig.links)
 
 ### Data Files
 
@@ -248,10 +261,20 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 
 ## Deployment
 
-The website can be deployed to:
-- **Vercel** - Recommended for Vite projects
-- **Netlify** - Easy deployment with drag-and-drop
-- **GitHub Pages** - Free hosting for static sites
+The website is deployed to **GitHub Pages**:
+- **Repository:** https://github.com/Mathewmsj/MyWeb
+- **Live URL:** https://mathewmsj.github.io/MyWeb/
+- **Deployment Method:** GitHub Actions automatic deployment
+- **Workflow:** `.github/workflows/deploy.yml` automatically builds and deploys on push to main branch
+- **Configuration:** Uses hash-based routing (`createWebHashHistory`) for GitHub Pages compatibility
+- **Asset Paths:** All assets use `import.meta.env.BASE_URL` for proper routing
+
+### Deployment Process:
+1. Code is pushed to `main` branch
+2. GitHub Actions workflow triggers automatically
+3. Builds the project using `npm run build`
+4. Deploys `dist/` folder to `gh-pages` branch
+5. GitHub Pages serves the site from `gh-pages` branch
 
 Build command: `npm run build`
 Output directory: `dist/`

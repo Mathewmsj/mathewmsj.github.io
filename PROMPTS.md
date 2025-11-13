@@ -131,10 +131,41 @@ This file documents all key prompts I used to generate code, debug, or refactor 
 - Added fallback UI for loading and error states
 - Logged errors to console for debugging
 
+## Deployment & Configuration
+
+### Prompt 13: GitHub Pages Deployment
+**Prompt:** "How do I deploy a Vite + Vue 3 project to GitHub Pages? I need to configure the base path and set up automatic deployment."
+
+**Modifications Made:**
+- Created `.github/workflows/deploy.yml` for GitHub Actions
+- Configured `vite.config.js` with `base: '/MyWeb/'` (later changed to `/`)
+- Changed router from `createWebHistory` to `createWebHashHistory` to avoid 404 errors
+- Fixed all asset paths to use `import.meta.env.BASE_URL` for proper GitHub Pages routing
+- Set up automatic deployment on push to main branch
+
+### Prompt 14: Fixing Image Paths for GitHub Pages
+**Prompt:** "My images are not loading on GitHub Pages. How do I fix image paths to work with the base URL?"
+
+**Modifications Made:**
+- Updated all `fetch()` calls to use `${import.meta.env.BASE_URL}data/...`
+- Fixed image paths in projects.json by processing them dynamically
+- Changed CSS background-image to use Vue computed properties
+- Fixed template expressions to avoid `import.meta` in template (used ref/computed instead)
+
+### Prompt 15: Extracting Hardcoded Data to Configuration
+**Prompt:** "How can I move all hardcoded personal information from Vue components to a central configuration file?"
+
+**Modifications Made:**
+- Created `src/config/site.js` to store all site configuration
+- Moved personal info, navigation items, links, skills, awards, education data to config
+- Updated all components to import and use `siteConfig`
+- Made components more maintainable and data-driven
+
 ## Notes
 
 - All prompts were adapted to fit the specific requirements of this project
 - Variable names, component structure, and styling were customized to match the project's design
 - Code was tested and modified based on actual requirements, not just copy-pasted
 - Each component was built incrementally, testing functionality at each step
+- Configuration file approach makes it easy to update site content without modifying components
 
