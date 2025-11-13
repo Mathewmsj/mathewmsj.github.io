@@ -2,16 +2,22 @@
   <div class="home" :style="homeStyle">
     <div class="container">
       <div class="hero">
-        <h1 class="welcome-title">Hi, I'm <span class="highlight">Sijia Ma</span></h1>
+        <h1 class="welcome-title">{{ siteConfig.personal.title }} <span class="highlight">{{ siteConfig.personal.name }}</span></h1>
         <p class="subtitle">
-          A high school innovator passionate about <strong>AI, robotics, and hands-on engineering</strong>.
+          {{ siteConfig.personal.subtitle }} <strong>{{ siteConfig.personal.subtitleHighlight }}</strong>.
         </p>
         <p class="description">
-          I love solving real-world problems with creativity and technology.
+          {{ siteConfig.personal.description }}
         </p>
         <div class="quick-links">
-          <router-link to="/projects" class="btn btn-primary">View My Projects</router-link>
-          <router-link to="/about" class="btn btn-outline">About Me</router-link>
+          <router-link 
+            v-for="btn in siteConfig.homeButtons" 
+            :key="btn.to"
+            :to="btn.to" 
+            :class="`btn ${btn.class}`"
+          >
+            {{ btn.text }}
+          </router-link>
         </div>
       </div>
     </div>
@@ -20,10 +26,11 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
+import { siteConfig } from '../config/site.js'
 
 const baseUrl = import.meta.env.BASE_URL
 const homeStyle = ref({
-  backgroundImage: `url('${baseUrl}images/Personal Photo.jpeg')`
+  backgroundImage: `url('${baseUrl}${siteConfig.personal.avatar}')`
 })
 
 onMounted(async () => {

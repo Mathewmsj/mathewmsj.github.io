@@ -23,26 +23,9 @@
 </template>
 
 <script setup>
-const profileLinks = [
-  {
-    id: 1,
-    title: 'GitHub (Personal)',
-    description: 'My repositories and personal projects',
-    url: 'https://github.com/Mathewmsj'
-  },
-  {
-    id: 2,
-    title: 'GitHub (School)',
-    description: 'Hangzhou Yungu School - High School',
-    url: 'https://github.com/Yungu-HZ-Highschool'
-  },
-  {
-    id: 3,
-    title: 'YouTube',
-    description: 'Project demos and showcases',
-    url: 'https://youtu.be/vJgpagHTskc'
-  }
-]
+import { siteConfig } from '../config/site.js'
+
+const profileLinks = siteConfig.links
 </script>
 
 <style scoped>

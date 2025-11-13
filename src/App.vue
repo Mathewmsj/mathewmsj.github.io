@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from './components/Navbar.vue'
+import { siteConfig } from './config/site.js'
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import Navbar from './components/Navbar.vue'
       <router-view />
     </main>
     <footer class="footer">
-      <p>&copy; 2025 Sijia Ma. Built with Vue.js & Vite.</p>
+      <p>&copy; 2025 {{ siteConfig.personal.name }}. Built with Vue.js & Vite.</p>
     </footer>
   </div>
 </template>

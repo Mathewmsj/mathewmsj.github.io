@@ -7,9 +7,7 @@
         <div class="text-content">
           <h2>Personal Aspirations</h2>
           <p>
-            I believe in the power of technology to create positive change. Through my projects in AI, 
-            robotics, and hardware engineering, I aim to bridge the gap between innovative ideas and 
-            practical solutions that make a real difference in people's lives.
+            {{ siteConfig.about.personalAspirations }}
           </p>
         </div>
         
@@ -18,18 +16,13 @@
         <section class="education-section">
           <h2>Education</h2>
           <div class="education-card">
-            <h3>Hangzhou Yungu School</h3>
-            <p class="period">2023 – 2026</p>
-            <p class="gpa"><strong>GPA:</strong> 3.99</p>
+            <h3>{{ siteConfig.about.education.school }}</h3>
+            <p class="period">{{ siteConfig.about.education.period }}</p>
+            <p class="gpa"><strong>GPA:</strong> {{ siteConfig.about.education.gpa }}</p>
             <div class="courses">
               <h4>Relevant Courses:</h4>
               <ul>
-                <li>CL/AP Python</li>
-                <li>Computer Science</li>
-                <li>Physics C</li>
-                <li>Statistics</li>
-                <li>Calculus</li>
-                <li>Business Studies</li>
+                <li v-for="course in siteConfig.about.education.courses" :key="course">{{ course }}</li>
               </ul>
             </div>
           </div>
@@ -65,18 +58,7 @@
         <section class="skills-tags-section">
           <h2>Skills & Interests</h2>
           <div class="tags">
-            <span class="tag">Vue.js</span>
-            <span class="tag">Python</span>
-            <span class="tag">C++</span>
-            <span class="tag">Arduino</span>
-            <span class="tag">Robotics</span>
-            <span class="tag">AI</span>
-            <span class="tag">Physics</span>
-            <span class="tag">Leadership</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">Hardware Engineering</span>
-            <span class="tag">PCB Design</span>
-            <span class="tag">3D Design</span>
+            <span v-for="tag in siteConfig.about.skillsAndInterests" :key="tag" class="tag">{{ tag }}</span>
           </div>
         </section>
       </div>
@@ -86,23 +68,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import { siteConfig } from '../config/site.js'
 
-const skills = ref([
-  { name: 'Python', level: 90 },
-  { name: 'JavaScript', level: 80 },
-  { name: 'Vue.js', level: 75 },
-  { name: 'Arduino/C++', level: 85 },
-  { name: 'Java', level: 70 },
-  { name: 'HTML/CSS', level: 80 }
-])
-
-const awards = ref([
-  { id: 1, category: 'Mathematics', title: 'AMC 12', description: 'Top 5% Global', year: '2024' },
-  { id: 2, category: 'Mathematics', title: 'UKMT Senior Math Challenge', description: 'Global Gold & Best in Year', year: '2024' },
-  { id: 3, category: 'Science', title: 'Science & Tech Innovation', description: 'Lanzhou City 1st, Gansu Province 3rd', year: '2024' },
-  { id: 4, category: 'Engineering', title: 'Destination Imagination', description: 'Engineering Award (China)', year: '2024' },
-  { id: 5, category: 'Scholarship', title: 'Creativity Scholarship', description: '¥10,000, Yungu School', year: '2023' }
-])
+const skills = ref(siteConfig.about.skills)
+const awards = ref(siteConfig.about.awards)
 
 onMounted(() => {
   setTimeout(() => {

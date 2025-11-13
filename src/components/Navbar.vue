@@ -2,23 +2,11 @@
   <nav class="navbar">
     <div class="nav-container">
       <router-link to="/" class="nav-logo">
-        <span>Sijia Ma</span>
+        <span>{{ siteConfig.navbar.logo }}</span>
       </router-link>
       <ul class="nav-menu">
-        <li class="nav-item">
-          <router-link to="/" class="nav-link">Home</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/about" class="nav-link">About</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/projects" class="nav-link">Projects</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/blog" class="nav-link">Blog</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/links" class="nav-link">Links</router-link>
+        <li v-for="item in siteConfig.navbar.menuItems" :key="item.to" class="nav-item">
+          <router-link :to="item.to" class="nav-link">{{ item.text }}</router-link>
         </li>
       </ul>
       <div class="nav-toggle" @click="toggleMenu">
@@ -32,6 +20,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { siteConfig } from '../config/site.js'
 
 const menuOpen = ref(false)
 
