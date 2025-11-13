@@ -27,9 +27,9 @@
     "role": "Vice Leader, Engineer",
     "time": "Mar 2025–Feb 2025",
     "description": "Redesigned F-18 cockpit circuit using custom PCB to replace breadboard prototypes. The project involved circuit design, PCB layout, and hardware integration for a flight simulator cockpit.",
-    "technologies": ["KiCad", "PCB Design", "Hardware Engineering", "Circuit Design"],
+    "technologies": ["JLC", "PCB Design", "Hardware Engineering", "Circuit Design"],
     "image": "/images/PCB.png",
-    "contribution": "Designed the PCB layout in KiCad, optimized circuit routing for signal integrity, and managed the hardware integration process. The custom PCB significantly improved reliability compared to breadboard prototypes."
+    "contribution": "Designed the PCB layout in JLC, optimized circuit routing for signal integrity, and managed the hardware integration process. The custom PCB significantly improved reliability compared to breadboard prototypes."
   },
   {
     "id": 4,
