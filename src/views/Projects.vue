@@ -174,6 +174,8 @@ onMounted(() => {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -236,6 +238,9 @@ onMounted(() => {
 
 .project-content {
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .project-content h3 {
@@ -274,7 +279,8 @@ onMounted(() => {
 .project-links {
   display: flex;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .project-link {
