@@ -70,12 +70,11 @@ export const siteConfig = {
       { text: 'Home', to: '/' },
       { text: 'About', to: '/about' },
       { text: 'Projects', to: '/projects' },
-      { text: 'Blog', to: '/blog' },
-      { text: 'Links', to: '/links' }
+      { text: 'Blog', to: '/blog' }
     ]
   },
 
-  // Links 页面
+  // Links 页面（已合并到 About）
   links: [
     {
       id: 1,
@@ -96,6 +95,13 @@ export const siteConfig = {
       url: 'https://youtu.be/vJgpagHTskc'
     }
   ],
+
+  // 联系方式
+  contact: {
+    email: ['Starry.masijia@yungu.org', '1514228966@qq.com'],
+    phone: '+8618193137195',
+    wechat: '+8618193137195'
+  },
 
   // 网站元信息
   meta: {

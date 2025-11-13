@@ -5,7 +5,6 @@ import Projects from '../views/Projects.vue'
 import ProjectDetail from '../views/ProjectDetail.vue'
 import Blog from '../views/Blog.vue'
 import BlogPost from '../views/BlogPost.vue'
-import Links from '../views/Links.vue'
 
 const routes = [
   {
@@ -39,11 +38,6 @@ const routes = [
     name: 'BlogPost',
     component: BlogPost,
     props: true
-  },
-  {
-    path: '/links',
-    name: 'Links',
-    component: Links
   }
 ]
 
