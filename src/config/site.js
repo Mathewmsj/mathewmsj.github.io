@@ -100,7 +100,7 @@ export const siteConfig = {
   contact: {
     email: ['Starry.masijia@yungu.org', '1514228966@qq.com'],
     phone: '+8618193137195',
-    wechat: '+8618193137195'
+    wechat: '18193137196'
   },
 
   // 页面标题
