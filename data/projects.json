@@ -90,6 +90,7 @@
     "technologies": ["Java", "Game Design", "Git", "Object-Oriented Programming"],
     "github": "https://github.com/Mathewmsj",
     "image": "/images/Gomoku.png",
+    "video": "/videos/gomoku-demo.mov",
     "contribution": "Designed the game mechanics, implemented the core game logic in Java, created the user interface, and managed version control using Git."
   }
 ]
