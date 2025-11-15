@@ -112,15 +112,18 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 - **Data Source:** Static content
 
 #### `src/views/About.vue`
-- **Purpose:** Detailed personal introduction, skills, education, and awards
+- **Purpose:** Detailed personal introduction, skills, education, awards, links, and contact information
 - **Key Features:**
   - Personal aspirations statement
   - Education section (school, period, GPA, courses)
   - Technical skills with animated progress bars
   - Awards & Achievements grid
   - Skills & Interests tags
+  - Links section (integrated from Links.vue)
+  - Contact Me section (email, phone, WeChat)
   - All data loaded from `siteConfig`
 - **Data Source:** `src/config/site.js`
+- **Note:** This page consolidates content from the original Skills and Links pages
 
 #### `src/views/Skills.vue`
 - **Purpose:** (Note: Skills content has been integrated into About.vue)
