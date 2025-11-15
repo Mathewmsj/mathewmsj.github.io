@@ -200,7 +200,10 @@ const fetchProject = async () => {
             return finalPath
           }
           return img
-        }) : (foundProject.images || [])
+        }) : (foundProject.images || []),
+        video: foundProject.video && foundProject.video.startsWith('/videos/')
+          ? `${baseUrl}videos/${foundProject.video.split('/videos/')[1]}`
+          : foundProject.video
       }
       
       // 如果有轮播图，启动自动播放（使用 nextTick 确保 DOM 更新完成）
