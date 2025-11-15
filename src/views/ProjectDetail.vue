@@ -164,8 +164,12 @@ const dragStartX = ref(0)
 
 // 处理图片路径，添加 BASE_URL 前缀
 const projectImages = computed(() => {
-  if (!project.value || !project.value.images) return []
+  if (!project.value || !project.value.images) {
+    console.log('projectImages computed: no images', { project: project.value })
+    return []
+  }
   // 路径已经在 fetchProject 中处理过了，直接返回
+  console.log('projectImages computed:', project.value.images)
   return project.value.images
 })
 
@@ -197,9 +201,14 @@ const fetchProject = async () => {
       }
       
       // 如果有轮播图，启动自动播放（使用 nextTick 确保 DOM 更新完成）
-      if (project.value.images && project.value.images.length > 1) {
+      if (project.value.images && project.value.images.length > 0) {
+        console.log('Project images loaded:', project.value.images)
         await nextTick()
-        startAutoPlay()
+        if (project.value.images.length > 1) {
+          startAutoPlay()
+        }
+      } else {
+        console.log('No images found for project:', project.value)
       }
     } else {
       error.value = 'Project not found'
