@@ -83,16 +83,6 @@
           <img :src="project.image" :alt="project.name" decoding="async" loading="lazy" />
         </div>
         
-        <div class="project-links-below-image" v-if="project.github">
-          <a 
-            :href="project.github" 
-            target="_blank" 
-            class="link-btn-below github"
-          >
-            {{ siteConfig.messages.buttons.viewOnGitHub }}
-          </a>
-        </div>
-        
         <div class="project-body">
           <div class="project-description">
             <h2>Description</h2>
@@ -117,16 +107,16 @@
             <p>{{ project.contribution }}</p>
           </div>
           
-          <div class="project-links-section" v-if="project.demo || project.video">
+          <div class="project-links-section" v-if="project.github || project.demo || project.video">
             <h2>Links</h2>
             <div class="links">
               <a 
-                v-if="project.demo" 
-                :href="project.demo" 
+                v-if="project.github" 
+                :href="project.github" 
                 target="_blank" 
-                class="link-btn demo"
+                class="link-btn github"
               >
-                {{ siteConfig.messages.buttons.liveDemo }}
+                {{ siteConfig.messages.buttons.viewOnGitHub }}
               </a>
               <a 
                 v-if="project.video" 
@@ -135,6 +125,14 @@
                 class="link-btn video"
               >
                 {{ siteConfig.messages.buttons.watchVideo }}
+              </a>
+              <a 
+                v-if="project.demo" 
+                :href="project.demo" 
+                target="_blank" 
+                class="link-btn demo"
+              >
+                {{ siteConfig.messages.buttons.liveDemo }}
               </a>
             </div>
           </div>

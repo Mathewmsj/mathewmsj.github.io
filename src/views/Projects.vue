@@ -44,7 +44,7 @@
                 {{ tech }}
               </span>
             </div>
-            <div class="project-links">
+            <div class="project-links" v-if="project.github || project.video || project.demo">
               <a 
                 v-if="project.github" 
                 :href="project.github" 
@@ -55,7 +55,7 @@
                 {{ siteConfig.messages.buttons.github }}
               </a>
               <a 
-                v-if="project.video && !project.github" 
+                v-if="project.video" 
                 :href="project.video" 
                 target="_blank" 
                 class="project-link"
