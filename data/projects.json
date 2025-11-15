@@ -28,7 +28,7 @@
       "/images/robot/739b07214f47ebbc0e3e2bcd34b47a30.png",
       "/images/robot/e4680f5eb785143ac1f264fbf7b70eab.png"
     ],
-    "contribution": "Developed the PID control algorithms for balance and motion, implemented serial communication protocols, and tested various control parameters to optimize performance."
+    "contribution": "主要参与了机器人搭建、硬件调试、PID调参和机器人操控工作。"
   },
   {
     "id": 3,
