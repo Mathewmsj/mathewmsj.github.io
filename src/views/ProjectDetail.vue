@@ -19,7 +19,7 @@
         </div>
         
         <!-- 图片轮播（如果有多个图片） -->
-        <div v-if="project.images && project.images.length > 0" class="image-carousel-container">
+        <div v-if="projectImages && projectImages.length > 0" class="image-carousel-container">
           <div 
             class="image-carousel"
             @touchstart="handleTouchStart"
