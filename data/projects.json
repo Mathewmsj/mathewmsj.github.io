@@ -64,6 +64,11 @@
     "description": "Designed low-cost tools to visualize the Coriolis Effect and improve physics learning. The project aims to make abstract physics concepts more tangible through hands-on demonstrations.",
     "technologies": ["3D Design", "Arduino", "Education Design", "Physics Simulation"],
     "image": "/images/Captone.png",
+    "images": [
+      "/images/capstone/截屏2025-11-15 18.37.34.png",
+      "/images/capstone/截屏2025-11-15 18.37.48.png",
+      "/images/capstone/截屏2025-11-15 18.38.02.png"
+    ],
     "contribution": "Conceived the project idea, designed the 3D models for the teaching aids, integrated Arduino sensors for data collection, and tested the effectiveness in educational settings."
   },
   {
