@@ -423,13 +423,13 @@ onUnmounted(() => {
 /* 图片轮播样式 */
 .image-carousel-container {
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto 2rem;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   background: #f5f5f5;
-  min-height: 300px;
+  min-height: 500px;
   display: flex;
   align-items: center;
 }
@@ -440,7 +440,7 @@ onUnmounted(() => {
   overflow: hidden;
   user-select: none;
   touch-action: pan-y;
-  min-height: 300px;
+  min-height: 500px;
   display: flex;
   align-items: center;
 }
@@ -458,17 +458,17 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
 }
 
 .carousel-slide img {
+  width: 100%;
+  height: 100%;
   max-width: 100%;
-  max-height: 600px;
-  width: auto;
-  height: auto;
-  display: block;
+  max-height: 100%;
   object-fit: contain;
+  display: block;
   background: transparent;
 }
 
@@ -543,19 +543,15 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .image-carousel-container {
     max-width: 100%;
-    min-height: 250px;
+    min-height: 400px;
   }
   
   .image-carousel {
-    min-height: 250px;
+    min-height: 400px;
   }
   
   .carousel-slide {
-    padding: 10px;
-  }
-  
-  .carousel-slide img {
-    max-height: 400px;
+    padding: 5px;
   }
   
   .carousel-btn {
