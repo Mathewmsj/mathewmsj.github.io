@@ -146,11 +146,19 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 - **Key Features:**
   - Fetches all projects and filters by route parameter (id)
   - Shows full project description, technologies, contribution
-  - Displays project image (if available)
+  - Displays project images in a carousel (if multiple images available)
+  - Displays single image or video player (for Gomoku project)
+  - Image carousel with auto-play, swipe/drag functionality, navigation arrows, and indicators
   - Links to GitHub, demo, and video (if available)
   - Back button to return to projects list
+  - Fixed height container (600px) for consistent image display
+  - Images are centered and scale to fit container while maintaining aspect ratio
 - **Data Source:** `/public/data/projects.json` (async fetch)
 - **Route Parameter:** `:id` (project ID)
+- **Special Features:**
+  - Image carousel for projects with multiple images (Projects 1, 2, 3, 4, 5)
+  - Video player for Gomoku project (Project 6)
+  - Responsive image sizing with `object-fit: contain`
 
 #### `src/views/Blog.vue`
 - **Purpose:** Display list of all blog posts
