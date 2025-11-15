@@ -192,10 +192,13 @@ const fetchProject = async () => {
           : foundProject.image,
         images: foundProject.images ? foundProject.images.map(img => {
           if (img && img.startsWith('/images/')) {
-            // 处理路径：/images/robot/xxx.png -> baseUrl + images/robot/xxx.png
+            // 处理路径：/images/span/xxx.jpeg -> baseUrl + images/span/xxx.jpeg
             const pathAfterImages = img.substring('/images/'.length)
-            return `${baseUrl}images/${pathAfterImages}`
+            const fullPath = `${baseUrl}images/${pathAfterImages}`
+            console.log('Processing image path:', img, '->', fullPath)
+            return fullPath
           }
+          console.log('Image path does not start with /images/:', img)
           return img
         }) : null
       }
