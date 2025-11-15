@@ -414,7 +414,8 @@ onUnmounted(() => {
 /* 图片轮播样式 */
 .image-carousel-container {
   width: 100%;
-  margin-bottom: 2rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
@@ -437,10 +438,15 @@ onUnmounted(() => {
 .carousel-slide {
   min-width: 100%;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-slide img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 500px;
+  width: auto;
   height: auto;
   display: block;
   object-fit: contain;
