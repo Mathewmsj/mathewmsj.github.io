@@ -438,12 +438,13 @@ onUnmounted(() => {
 }
 
 .project-image-large img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
+  margin: 0 auto;
 }
 
 /* 视频播放器样式 */
@@ -507,13 +508,14 @@ onUnmounted(() => {
 }
 
 .carousel-slide img {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
   display: block;
   background: transparent;
+  margin: 0 auto;
 }
 
 .carousel-btn {
