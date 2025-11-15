@@ -164,12 +164,10 @@ const dragStartX = ref(0)
 
 // 处理图片路径，添加 BASE_URL 前缀
 const projectImages = computed(() => {
-  if (!project.value || !project.value.images) {
-    console.log('projectImages computed: no images', { project: project.value })
+  if (!project.value || !project.value.images || !Array.isArray(project.value.images)) {
     return []
   }
   // 路径已经在 fetchProject 中处理过了，直接返回
-  console.log('projectImages computed:', project.value.images)
   return project.value.images
 })
 
@@ -190,28 +188,22 @@ const fetchProject = async () => {
         image: foundProject.image && foundProject.image.startsWith('/images/')
           ? `${baseUrl}images/${foundProject.image.split('/images/')[1]}`
           : foundProject.image,
-        images: foundProject.images ? foundProject.images.map(img => {
-          if (img && img.startsWith('/images/')) {
+        images: foundProject.images && Array.isArray(foundProject.images) ? foundProject.images.map(img => {
+          if (img && typeof img === 'string' && img.startsWith('/images/')) {
             // 处理路径：/images/span/xxx.jpeg -> baseUrl + images/span/xxx.jpeg
             const pathAfterImages = img.substring('/images/'.length)
-            const fullPath = `${baseUrl}images/${pathAfterImages}`
-            console.log('Processing image path:', img, '->', fullPath)
-            return fullPath
+            return `${baseUrl}images/${pathAfterImages}`
           }
-          console.log('Image path does not start with /images/:', img)
           return img
-        }) : null
+        }) : (foundProject.images || [])
       }
       
       // 如果有轮播图，启动自动播放（使用 nextTick 确保 DOM 更新完成）
-      if (project.value.images && project.value.images.length > 0) {
-        console.log('Project images loaded:', project.value.images)
-        await nextTick()
+      await nextTick()
+      if (project.value.images && Array.isArray(project.value.images) && project.value.images.length > 0) {
         if (project.value.images.length > 1) {
           startAutoPlay()
         }
-      } else {
-        console.log('No images found for project:', project.value)
       }
     } else {
       error.value = 'Project not found'
