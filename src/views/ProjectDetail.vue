@@ -143,7 +143,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, onUnmounted } from 'vue'
+import { ref, onMounted, computed, onUnmounted, nextTick } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { siteConfig } from '../config/site.js'
 
@@ -167,7 +167,9 @@ const projectImages = computed(() => {
   if (!project.value || !project.value.images) return []
   return project.value.images.map(img => {
     if (img && img.startsWith('/images/')) {
-      return `${baseUrl}images/${img.split('/images/')[1]}`
+      // 处理路径：/images/robot/xxx.png -> baseUrl + images/robot/xxx.png
+      const pathAfterImages = img.substring('/images/'.length)
+      return `${baseUrl}images/${pathAfterImages}`
     }
     return img
   })
@@ -192,14 +194,17 @@ const fetchProject = async () => {
           : foundProject.image,
         images: foundProject.images ? foundProject.images.map(img => {
           if (img && img.startsWith('/images/')) {
-            return `${baseUrl}images/${img.split('/images/')[1]}`
+            // 处理路径：/images/robot/xxx.png -> baseUrl + images/robot/xxx.png
+            const pathAfterImages = img.substring('/images/'.length)
+            return `${baseUrl}images/${pathAfterImages}`
           }
           return img
         }) : null
       }
       
-      // 如果有轮播图，启动自动播放
+      // 如果有轮播图，启动自动播放（使用 nextTick 确保 DOM 更新完成）
       if (project.value.images && project.value.images.length > 1) {
+        await nextTick()
         startAutoPlay()
       }
     } else {
