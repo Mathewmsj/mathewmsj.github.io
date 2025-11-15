@@ -440,11 +440,11 @@ onUnmounted(() => {
 .project-image-large img {
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  margin: 0;
 }
 
 /* 视频播放器样式 */
@@ -485,14 +485,14 @@ onUnmounted(() => {
   overflow: hidden;
   user-select: none;
   touch-action: pan-y;
-  display: flex;
-  align-items: center;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
+  height: 100%;
+  align-items: center;
 }
 
 .carousel-slide {
@@ -505,17 +505,18 @@ onUnmounted(() => {
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .carousel-slide img {
   width: auto;
   height: auto;
-  max-width: 100%;
-  max-height: 100%;
+  max-width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
   object-fit: contain;
   display: block;
   background: transparent;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .carousel-btn {
