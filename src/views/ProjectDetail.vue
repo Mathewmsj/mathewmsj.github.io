@@ -164,7 +164,10 @@ const dragStartX = ref(0)
 
 // 处理图片路径，添加 BASE_URL 前缀
 const projectImages = computed(() => {
-  if (!project.value || !project.value.images || !Array.isArray(project.value.images)) {
+  if (!project.value) {
+    return []
+  }
+  if (!project.value.images || !Array.isArray(project.value.images)) {
     return []
   }
   // 路径已经在 fetchProject 中处理过了，直接返回
@@ -191,8 +194,10 @@ const fetchProject = async () => {
         images: foundProject.images && Array.isArray(foundProject.images) ? foundProject.images.map(img => {
           if (img && typeof img === 'string' && img.startsWith('/images/')) {
             // 处理路径：/images/span/xxx.jpeg -> baseUrl + images/span/xxx.jpeg
+            // 如果 baseUrl 是 '/'，则直接使用原路径；否则添加 baseUrl 前缀
             const pathAfterImages = img.substring('/images/'.length)
-            return `${baseUrl}images/${pathAfterImages}`
+            const finalPath = baseUrl === '/' ? img : `${baseUrl}images/${pathAfterImages}`
+            return finalPath
           }
           return img
         }) : (foundProject.images || [])
@@ -200,6 +205,12 @@ const fetchProject = async () => {
       
       // 如果有轮播图，启动自动播放（使用 nextTick 确保 DOM 更新完成）
       await nextTick()
+      console.log('Project loaded:', {
+        hasImages: !!project.value.images,
+        imagesLength: project.value.images?.length,
+        images: project.value.images,
+        projectImages: projectImages.value
+      })
       if (project.value.images && Array.isArray(project.value.images) && project.value.images.length > 0) {
         if (project.value.images.length > 1) {
           startAutoPlay()
