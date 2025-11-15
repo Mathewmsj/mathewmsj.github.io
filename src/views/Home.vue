@@ -98,13 +98,12 @@ onMounted(async () => {
 .hero {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: -3rem;
 }
 
 
 .welcome-title {
   font-size: 3rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-weight: 700;
 }
 
@@ -114,13 +113,12 @@ onMounted(async () => {
 
 .subtitle {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   opacity: 0.95;
 }
 
 .description {
   font-size: 1.2rem;
-  margin-top: 1.5rem;
   margin-bottom: 2rem;
   opacity: 0.9;
 }
@@ -130,7 +128,6 @@ onMounted(async () => {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
 }
 
 .btn {
