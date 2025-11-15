@@ -165,14 +165,8 @@ const dragStartX = ref(0)
 // 处理图片路径，添加 BASE_URL 前缀
 const projectImages = computed(() => {
   if (!project.value || !project.value.images) return []
-  return project.value.images.map(img => {
-    if (img && img.startsWith('/images/')) {
-      // 处理路径：/images/robot/xxx.png -> baseUrl + images/robot/xxx.png
-      const pathAfterImages = img.substring('/images/'.length)
-      return `${baseUrl}images/${pathAfterImages}`
-    }
-    return img
-  })
+  // 路径已经在 fetchProject 中处理过了，直接返回
+  return project.value.images
 })
 
 const fetchProject = async () => {
