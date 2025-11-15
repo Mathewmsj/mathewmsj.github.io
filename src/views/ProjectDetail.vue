@@ -18,8 +18,20 @@
           <p class="project-meta">{{ project.role }} • {{ project.time }}</p>
         </div>
         
+        <!-- 视频播放器（如果是五子棋项目且有视频） -->
+        <div v-if="project.id === 6 && project.video" class="video-container">
+          <video 
+            :src="project.video" 
+            controls 
+            class="project-video"
+            preload="metadata"
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
         <!-- 图片轮播（如果有多个图片） -->
-        <div v-if="projectImages && projectImages.length > 0" class="image-carousel-container">
+        <div v-else-if="projectImages && projectImages.length > 0" class="image-carousel-container">
           <div 
             class="image-carousel"
             @touchstart="handleTouchStart"
@@ -78,8 +90,8 @@
           </div>
         </div>
         
-        <!-- 单张图片（如果没有轮播图） -->
-        <div class="project-image-large" v-else-if="project.image">
+        <!-- 单张图片（如果没有轮播图和视频） -->
+        <div class="project-image-large" v-else-if="project.image && !(project.id === 6 && project.video)">
           <img :src="project.image" :alt="project.name" decoding="async" loading="lazy" />
         </div>
         
@@ -188,8 +200,8 @@ const fetchProject = async () => {
       // 修复图片路径，添加 BASE_URL 前缀
       project.value = {
         ...foundProject,
-        image: foundProject.image && foundProject.image.startsWith('/images/')
-          ? `${baseUrl}images/${foundProject.image.split('/images/')[1]}`
+        image: foundProject.image && typeof foundProject.image === 'string' && foundProject.image.startsWith('/images/')
+          ? (baseUrl === '/' ? foundProject.image : `${baseUrl}images/${foundProject.image.split('/images/')[1]}`)
           : foundProject.image,
         images: foundProject.images && Array.isArray(foundProject.images) ? foundProject.images.map(img => {
           if (img && typeof img === 'string' && img.startsWith('/images/')) {
@@ -412,14 +424,40 @@ onUnmounted(() => {
 
 .project-image-large {
   width: 100%;
-  margin-bottom: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
   border-radius: 10px;
   overflow: hidden;
+  background: #f5f5f5;
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .project-image-large img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 视频播放器样式 */
+.video-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16 / 10;
+}
+
+.project-video {
+  width: 100%;
+  height: 100%;
   display: block;
 }
 
