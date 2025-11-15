@@ -8,6 +8,12 @@
     "technologies": ["Python", "LLM", "WeChat API", "Data Integration"],
     "video": "https://youtu.be/vJgpagHTskc",
     "image": "/images/Moonshot.png",
+    "images": [
+      "/images/span/IMG_2222.jpeg",
+      "/images/span/IMG_2223.PNG",
+      "/images/span/IMG_2224.jpeg",
+      "/images/span/IMG_2226.JPG"
+    ],
     "contribution": "Led the team in designing the overall architecture, integrated LLM APIs, and developed the WeChat interface. Presented the project at the hackathon and received positive feedback."
   },
   {
