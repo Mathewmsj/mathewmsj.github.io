@@ -428,6 +428,10 @@ onUnmounted(() => {
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  background: #f5f5f5;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .image-carousel {
@@ -436,12 +440,16 @@ onUnmounted(() => {
   overflow: hidden;
   user-select: none;
   touch-action: pan-y;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
+  width: 100%;
 }
 
 .carousel-slide {
@@ -450,16 +458,18 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .carousel-slide img {
   max-width: 100%;
-  max-height: 500px;
+  max-height: 600px;
   width: auto;
   height: auto;
   display: block;
   object-fit: contain;
-  background: #f5f5f5;
+  background: transparent;
 }
 
 .carousel-btn {
@@ -531,6 +541,23 @@ onUnmounted(() => {
 }
 
 @media (max-width: 768px) {
+  .image-carousel-container {
+    max-width: 100%;
+    min-height: 250px;
+  }
+  
+  .image-carousel {
+    min-height: 250px;
+  }
+  
+  .carousel-slide {
+    padding: 10px;
+  }
+  
+  .carousel-slide img {
+    max-height: 400px;
+  }
+  
   .carousel-btn {
     width: 40px;
     height: 40px;
