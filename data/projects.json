@@ -19,6 +19,15 @@
     "technologies": ["C++", "PID Control", "Serial Monitoring", "Arduino"],
     "github": "https://github.com/Mathewmsj/Stack-Force-Bipedal-TwoWheel-Robot",
     "image": "/images/Robot.jpg",
+    "images": [
+      "/images/robot/027d14d84a0b1d1254450cea24ddc16e.png",
+      "/images/robot/1bfe9222f972afe50f6088ea09e675a3.png",
+      "/images/robot/26f9842ff0c54cb4942a4ffcb5ad4247.png",
+      "/images/robot/662b20e17894e97891de054a4528b320.png",
+      "/images/robot/6b17e41973aaa6e9d4116466ccd1841b.png",
+      "/images/robot/739b07214f47ebbc0e3e2bcd34b47a30.png",
+      "/images/robot/e4680f5eb785143ac1f264fbf7b70eab.png"
+    ],
     "contribution": "Developed the PID control algorithms for balance and motion, implemented serial communication protocols, and tested various control parameters to optimize performance."
   },
   {
