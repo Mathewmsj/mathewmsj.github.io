@@ -449,10 +449,10 @@ onUnmounted(() => {
   display: flex;
   transition: transform 0.5s ease-in-out;
   will-change: transform;
-  width: 100%;
 }
 
 .carousel-slide {
+  width: 100%;
   min-width: 100%;
   flex-shrink: 0;
   display: flex;
