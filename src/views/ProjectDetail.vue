@@ -429,7 +429,7 @@ onUnmounted(() => {
   overflow: hidden;
   position: relative;
   background: #f5f5f5;
-  min-height: 600px;
+  aspect-ratio: 16 / 10;
   display: flex;
   align-items: center;
 }
@@ -437,10 +437,10 @@ onUnmounted(() => {
 .image-carousel {
   position: relative;
   width: 100%;
+  height: 100%;
   overflow: hidden;
   user-select: none;
   touch-action: pan-y;
-  min-height: 600px;
   display: flex;
   align-items: center;
 }
@@ -454,11 +454,12 @@ onUnmounted(() => {
 .carousel-slide {
   width: 100%;
   min-width: 100%;
+  height: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -543,15 +544,7 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .image-carousel-container {
     max-width: 100%;
-    min-height: 450px;
-  }
-  
-  .image-carousel {
-    min-height: 450px;
-  }
-  
-  .carousel-slide {
-    padding: 3px;
+    aspect-ratio: 4 / 3;
   }
   
   .carousel-btn {
