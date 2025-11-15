@@ -434,13 +434,14 @@ onUnmounted(() => {
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
+  height: 600px;
 }
 
 .project-image-large img {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 100%;
   object-fit: contain;
   display: block;
 }
@@ -471,7 +472,7 @@ onUnmounted(() => {
   overflow: hidden;
   position: relative;
   background: #f5f5f5;
-  min-height: 400px;
+  height: 600px;
   display: flex;
   align-items: center;
 }
@@ -479,12 +480,12 @@ onUnmounted(() => {
 .image-carousel {
   position: relative;
   width: 100%;
+  height: 100%;
   overflow: hidden;
   user-select: none;
   touch-action: pan-y;
   display: flex;
   align-items: center;
-  min-height: 400px;
 }
 
 .carousel-track {
@@ -496,6 +497,7 @@ onUnmounted(() => {
 .carousel-slide {
   width: 100%;
   min-width: 100%;
+  height: 100%;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -506,9 +508,9 @@ onUnmounted(() => {
 
 .carousel-slide img {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 100%;
   object-fit: contain;
   display: block;
   background: transparent;
@@ -585,23 +587,16 @@ onUnmounted(() => {
 @media (max-width: 768px) {
   .image-carousel-container {
     max-width: 100%;
-    min-height: 300px;
+    height: 400px;
   }
   
   .project-image-large {
     padding: 10px;
-  }
-  
-  .project-image-large img {
-    max-height: 60vh;
+    height: 400px;
   }
   
   .carousel-slide {
     padding: 10px;
-  }
-  
-  .carousel-slide img {
-    max-height: 60vh;
   }
   
   .carousel-btn {
