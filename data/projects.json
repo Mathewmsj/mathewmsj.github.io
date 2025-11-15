@@ -79,6 +79,13 @@
     "description": "Created a fridge layout and Arduino alert system for food expiration reminders. The device monitors food items and sends notifications to prevent waste.",
     "technologies": ["Arduino", "App Design", "Sensor Integration", "IoT"],
     "image": "https://images.unsplash.com/photo-1506617420156-8e4536971650?auto=format&fit=crop&w=1200&q=80",
+    "images": [
+      "/images/food/44320b07bbadea00b51f86178a3f720b.png",
+      "/images/food/截屏2025-11-15 19.28.04.png",
+      "/images/food/截屏2025-11-15 19.28.35.png",
+      "/images/food/截屏2025-11-15 19.28.59.png",
+      "/images/food/截屏2025-11-15 19.29.05.png"
+    ],
     "contribution": "Developed the hardware components including sensor integration, designed the Arduino firmware for monitoring, and created the mobile app interface for notifications."
   },
   {
