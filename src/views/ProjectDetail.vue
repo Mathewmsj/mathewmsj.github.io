@@ -18,7 +18,68 @@
           <p class="project-meta">{{ project.role }} • {{ project.time }}</p>
         </div>
         
-        <div class="project-image-large" v-if="project.image">
+        <!-- 图片轮播（如果有多个图片） -->
+        <div v-if="project.images && project.images.length > 0" class="image-carousel-container">
+          <div 
+            class="image-carousel"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+            @mousedown="handleMouseDown"
+            @mousemove="handleMouseMove"
+            @mouseup="handleMouseUp"
+            @mouseleave="handleMouseUp"
+          >
+            <div 
+              class="carousel-track"
+              :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+            >
+              <div 
+                v-for="(img, index) in projectImages" 
+                :key="index"
+                class="carousel-slide"
+              >
+                <img 
+                  :src="img" 
+                  :alt="`${project.name} - Image ${index + 1}`" 
+                  decoding="async" 
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <!-- 左右箭头 -->
+            <button 
+              v-if="projectImages.length > 1"
+              class="carousel-btn carousel-btn-prev"
+              @click.stop="prevImage"
+              aria-label="Previous image"
+            >
+              ‹
+            </button>
+            <button 
+              v-if="projectImages.length > 1"
+              class="carousel-btn carousel-btn-next"
+              @click.stop="nextImage"
+              aria-label="Next image"
+            >
+              ›
+            </button>
+            <!-- 指示器 -->
+            <div v-if="projectImages.length > 1" class="carousel-indicators">
+              <button
+                v-for="(img, index) in projectImages"
+                :key="index"
+                class="indicator"
+                :class="{ active: index === currentIndex }"
+                @click.stop="goToImage(index)"
+                :aria-label="`Go to image ${index + 1}`"
+              ></button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 单张图片（如果没有轮播图） -->
+        <div class="project-image-large" v-else-if="project.image">
           <img :src="project.image" :alt="project.name" decoding="async" loading="lazy" />
         </div>
         
@@ -84,7 +145,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed, onUnmounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { siteConfig } from '../config/site.js'
 
@@ -93,11 +154,31 @@ const route = useRoute()
 const project = ref(null)
 const loading = ref(true)
 const error = ref(null)
+const currentIndex = ref(0)
+const autoPlayInterval = ref(null)
+const baseUrl = import.meta.env.BASE_URL
+
+// 触摸/鼠标拖拽相关
+const touchStartX = ref(0)
+const touchStartY = ref(0)
+const isDragging = ref(false)
+const dragStartX = ref(0)
+
+// 处理图片路径，添加 BASE_URL 前缀
+const projectImages = computed(() => {
+  if (!project.value || !project.value.images) return []
+  return project.value.images.map(img => {
+    if (img && img.startsWith('/images/')) {
+      return `${baseUrl}images/${img.split('/images/')[1]}`
+    }
+    return img
+  })
+})
 
 const fetchProject = async () => {
   try {
     loading.value = true
-    const response = await fetch(`${import.meta.env.BASE_URL}data/projects.json`)
+    const response = await fetch(`${baseUrl}data/projects.json`)
     if (!response.ok) {
       throw new Error('Failed to fetch projects')
     }
@@ -109,8 +190,19 @@ const fetchProject = async () => {
       project.value = {
         ...foundProject,
         image: foundProject.image && foundProject.image.startsWith('/images/')
-          ? `${import.meta.env.BASE_URL}images/${foundProject.image.split('/images/')[1]}`
-          : foundProject.image
+          ? `${baseUrl}images/${foundProject.image.split('/images/')[1]}`
+          : foundProject.image,
+        images: foundProject.images ? foundProject.images.map(img => {
+          if (img && img.startsWith('/images/')) {
+            return `${baseUrl}images/${img.split('/images/')[1]}`
+          }
+          return img
+        }) : null
+      }
+      
+      // 如果有轮播图，启动自动播放
+      if (project.value.images && project.value.images.length > 1) {
+        startAutoPlay()
       }
     } else {
       error.value = 'Project not found'
@@ -123,12 +215,117 @@ const fetchProject = async () => {
   }
 }
 
+// 轮播控制
+const nextImage = () => {
+  if (projectImages.value.length === 0) return
+  currentIndex.value = (currentIndex.value + 1) % projectImages.value.length
+  resetAutoPlay()
+}
+
+const prevImage = () => {
+  if (projectImages.value.length === 0) return
+  currentIndex.value = (currentIndex.value - 1 + projectImages.value.length) % projectImages.value.length
+  resetAutoPlay()
+}
+
+const goToImage = (index) => {
+  currentIndex.value = index
+  resetAutoPlay()
+}
+
+// 自动播放
+const startAutoPlay = () => {
+  if (projectImages.value.length <= 1) return
+  autoPlayInterval.value = setInterval(() => {
+    nextImage()
+  }, 3000) // 每3秒切换
+}
+
+const stopAutoPlay = () => {
+  if (autoPlayInterval.value) {
+    clearInterval(autoPlayInterval.value)
+    autoPlayInterval.value = null
+  }
+}
+
+const resetAutoPlay = () => {
+  stopAutoPlay()
+  startAutoPlay()
+}
+
+// 触摸事件处理
+const handleTouchStart = (e) => {
+  touchStartX.value = e.touches[0].clientX
+  touchStartY.value = e.touches[0].clientY
+  isDragging.value = true
+  stopAutoPlay()
+}
+
+const handleTouchMove = (e) => {
+  if (!isDragging.value) return
+  e.preventDefault()
+}
+
+const handleTouchEnd = (e) => {
+  if (!isDragging.value) return
+  const touchEndX = e.changedTouches[0].clientX
+  const touchEndY = e.changedTouches[0].clientY
+  const deltaX = touchEndX - touchStartX.value
+  const deltaY = touchEndY - touchStartY.value
+  
+  // 如果主要是水平滑动
+  if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+    if (deltaX > 0) {
+      prevImage()
+    } else {
+      nextImage()
+    }
+  }
+  
+  isDragging.value = false
+  startAutoPlay()
+}
+
+// 鼠标拖拽事件处理
+const handleMouseDown = (e) => {
+  isDragging.value = true
+  dragStartX.value = e.clientX
+  stopAutoPlay()
+  e.preventDefault()
+}
+
+const handleMouseMove = (e) => {
+  if (!isDragging.value) return
+  e.preventDefault()
+}
+
+const handleMouseUp = (e) => {
+  if (!isDragging.value) return
+  const dragEndX = e.clientX
+  const deltaX = dragEndX - dragStartX.value
+  
+  if (Math.abs(deltaX) > 50) {
+    if (deltaX > 0) {
+      prevImage()
+    } else {
+      nextImage()
+    }
+  }
+  
+  isDragging.value = false
+  startAutoPlay()
+}
+
 const goBack = () => {
   router.push('/projects')
 }
 
 onMounted(() => {
   fetchProject()
+})
+
+onUnmounted(() => {
+  stopAutoPlay()
 })
 </script>
 
@@ -209,6 +406,131 @@ onMounted(() => {
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* 图片轮播样式 */
+.image-carousel-container {
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  background: #f5f5f5;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.3s, transform 0.2s;
+  user-select: none;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-btn-prev {
+  left: 1rem;
+}
+
+.carousel-btn-next {
+  right: 1rem;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.indicator:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  .carousel-btn-prev {
+    left: 0.5rem;
+  }
+  
+  .carousel-btn-next {
+    right: 0.5rem;
+  }
+  
+  .indicator {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .project-links-below-image {
