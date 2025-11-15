@@ -178,6 +178,7 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
   - Links open in new tab
   - Hover effects with smooth transitions
 - **Data Source:** `src/config/site.js` (siteConfig.links)
+- **Note:** Links content has been integrated into About.vue page, but this component file still exists
 
 ### Data Files
 
@@ -185,9 +186,12 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 - **Purpose:** Store all project information
 - **Structure:**
   - Array of project objects
-  - Each project has: id, name, role, time, description, technologies (array), github, video, image, contribution
+  - Each project has: id, name, role, time, description, technologies (array), github (optional), video (optional), image, images (optional array), contribution
   - 6 projects total
+  - Projects with multiple images: AI Agent (4 images), Robot (7 images), PCB (8 images), Capstone (3 images), Food (5 images)
+  - Project with video: Gomoku (video player instead of image)
 - **Usage:** Fetched by Projects.vue and ProjectDetail.vue
+- **Image Carousel:** Projects with `images` array display in a carousel with auto-play and navigation
 
 #### `public/data/blog.json`
 - **Purpose:** Store all blog posts
@@ -262,12 +266,13 @@ This is a personal portfolio website built with Vue.js 3 and Vite. The website s
 ## Deployment
 
 The website is deployed to **GitHub Pages**:
-- **Repository:** https://github.com/Mathewmsj/MyWeb
-- **Live URL:** https://mathewmsj.github.io/MyWeb/
+- **Repository:** https://github.com/Mathewmsj/mathewmsj.github.io
+- **Live URL:** https://mathewmsj.github.io/
 - **Deployment Method:** GitHub Actions automatic deployment
 - **Workflow:** `.github/workflows/deploy.yml` automatically builds and deploys on push to main branch
 - **Configuration:** Uses hash-based routing (`createWebHashHistory`) for GitHub Pages compatibility
 - **Asset Paths:** All assets use `import.meta.env.BASE_URL` for proper routing
+- **Base Path:** Changed from `/MyWeb/` to `/` for direct domain access
 
 ### Deployment Process:
 1. Code is pushed to `main` branch
