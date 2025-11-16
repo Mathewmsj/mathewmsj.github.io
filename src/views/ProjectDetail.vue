@@ -131,7 +131,7 @@
                 {{ siteConfig.messages.buttons.viewOnGitHub }}
               </a>
               <a 
-                v-if="project.video" 
+                v-if="project.video && project.id !== 6" 
                 :href="project.video" 
                 target="_blank" 
                 class="link-btn video"
