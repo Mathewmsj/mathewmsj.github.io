@@ -5,13 +5,18 @@
     "role": "Team Leader",
     "time": "April 2025",
     "description": "Designed an AI agent to improve intergenerational communication via WeChat. Integrated LLM-based features and presented in Moonshot Hackathon. The project helps bridge communication gaps between generations using intelligent conversation assistance.",
-    "technologies": ["Python", "LLM", "WeChat API", "Data Integration"],
+    "technologies": [
+      "Python",
+      "LLM",
+      "WeChat API",
+      "Data Integration"
+    ],
     "video": "https://youtu.be/vJgpagHTskc",
-    "image": "/images/Moonshot.png",
+    "image": "/images/Moonshot.jpg",
     "images": [
       "/images/span/IMG_2226.JPG",
       "/images/span/IMG_2222.jpeg",
-      "/images/span/IMG_2223.PNG",
+      "/images/span/IMG_2223.jpg",
       "/images/span/IMG_2224.jpeg"
     ],
     "contribution": "Led the team in designing the overall architecture, integrated LLM APIs, and developed the WeChat interface. Presented the project at the hackathon and received positive feedback."
@@ -22,17 +27,22 @@
     "role": "Vice Leader, Developer",
     "time": "Mar–Jun 2025",
     "description": "Developed wheel-legged robots using PID tuning for balance and motion control. The robot can switch between wheel and leg modes for different terrains, demonstrating advanced control algorithms.",
-    "technologies": ["C++", "PID Control", "Serial Monitoring", "Arduino"],
+    "technologies": [
+      "C++",
+      "PID Control",
+      "Serial Monitoring",
+      "Arduino"
+    ],
     "github": "https://github.com/Mathewmsj/Stack-Force-Bipedal-TwoWheel-Robot",
     "image": "/images/Robot.jpg",
     "images": [
-      "/images/robot/027d14d84a0b1d1254450cea24ddc16e.png",
-      "/images/robot/1bfe9222f972afe50f6088ea09e675a3.png",
-      "/images/robot/26f9842ff0c54cb4942a4ffcb5ad4247.png",
-      "/images/robot/662b20e17894e97891de054a4528b320.png",
-      "/images/robot/6b17e41973aaa6e9d4116466ccd1841b.png",
-      "/images/robot/739b07214f47ebbc0e3e2bcd34b47a30.png",
-      "/images/robot/e4680f5eb785143ac1f264fbf7b70eab.png"
+      "/images/robot/027d14d84a0b1d1254450cea24ddc16e.jpg",
+      "/images/robot/1bfe9222f972afe50f6088ea09e675a3.jpg",
+      "/images/robot/26f9842ff0c54cb4942a4ffcb5ad4247.jpg",
+      "/images/robot/662b20e17894e97891de054a4528b320.jpg",
+      "/images/robot/6b17e41973aaa6e9d4116466ccd1841b.jpg",
+      "/images/robot/739b07214f47ebbc0e3e2bcd34b47a30.jpg",
+      "/images/robot/e4680f5eb785143ac1f264fbf7b70eab.jpg"
     ],
     "contribution": "Mainly participated in robot assembly, hardware debugging, PID parameter tuning, and robot control operations."
   },
@@ -42,8 +52,13 @@
     "role": "Vice Leader, Engineer",
     "time": "Mar 2025–Feb 2025",
     "description": "Redesigned F-18 cockpit circuit using custom PCB to replace breadboard prototypes. The project involved circuit design, PCB layout, and hardware integration for a flight simulator cockpit.",
-    "technologies": ["JLCEDA", "PCB Design", "Hardware Engineering", "Circuit Design"],
-    "image": "/images/PCB.png",
+    "technologies": [
+      "JLCEDA",
+      "PCB Design",
+      "Hardware Engineering",
+      "Circuit Design"
+    ],
+    "image": "/images/PCB.jpg",
     "images": [
       "/images/pcb/PCB Project(1)_01.jpg",
       "/images/pcb/PCB Project(1)_02.jpg",
@@ -62,12 +77,17 @@
     "role": "Project Founder",
     "time": "Apr 2025–Present",
     "description": "Designed low-cost tools to visualize the Coriolis Effect and improve physics learning. The project aims to make abstract physics concepts more tangible through hands-on demonstrations.",
-    "technologies": ["3D Design", "Arduino", "Education Design", "Physics Simulation"],
-    "image": "/images/Captone.png",
+    "technologies": [
+      "3D Design",
+      "Arduino",
+      "Education Design",
+      "Physics Simulation"
+    ],
+    "image": "/images/Captone.jpg",
     "images": [
-      "/images/capstone/截屏2025-11-15 18.37.34.png",
-      "/images/capstone/截屏2025-11-15 18.37.48.png",
-      "/images/capstone/截屏2025-11-15 18.38.02.png"
+      "/images/capstone/截屏2025-11-15 18.37.34.jpg",
+      "/images/capstone/截屏2025-11-15 18.37.48.jpg",
+      "/images/capstone/截屏2025-11-15 18.38.02.jpg"
     ],
     "contribution": "Conceived the project idea, designed the 3D models for the teaching aids, integrated Arduino sensors for data collection, and tested the effectiveness in educational settings."
   },
@@ -77,14 +97,19 @@
     "role": "Hardware Developer",
     "time": "Mar 2024–Apr 2025",
     "description": "Created a fridge layout and Arduino alert system for food expiration reminders. The device monitors food items and sends notifications to prevent waste.",
-    "technologies": ["Arduino", "App Design", "Sensor Integration", "IoT"],
+    "technologies": [
+      "Arduino",
+      "App Design",
+      "Sensor Integration",
+      "IoT"
+    ],
     "image": "https://images.unsplash.com/photo-1506617420156-8e4536971650?auto=format&fit=crop&w=1200&q=80",
     "images": [
-      "/images/food/44320b07bbadea00b51f86178a3f720b.png",
-      "/images/food/截屏2025-11-15 19.28.04.png",
-      "/images/food/截屏2025-11-15 19.28.35.png",
-      "/images/food/截屏2025-11-15 19.28.59.png",
-      "/images/food/截屏2025-11-15 19.29.05.png"
+      "/images/food/44320b07bbadea00b51f86178a3f720b.jpg",
+      "/images/food/截屏2025-11-15 19.28.04.jpg",
+      "/images/food/截屏2025-11-15 19.28.35.jpg",
+      "/images/food/截屏2025-11-15 19.28.59.jpg",
+      "/images/food/截屏2025-11-15 19.29.05.jpg"
     ],
     "contribution": "Developed the hardware components including sensor integration, designed the Arduino firmware for monitoring, and created the mobile app interface for notifications."
   },
@@ -94,11 +119,15 @@
     "role": "Developer, Game Designer",
     "time": "Mar–Jun 2024",
     "description": "Enhanced Gomoku with special pieces and strategic rules, implemented in Java. The game features unique gameplay mechanics that add depth to the classic board game.",
-    "technologies": ["Java", "Game Design", "Git", "Object-Oriented Programming"],
+    "technologies": [
+      "Java",
+      "Game Design",
+      "Git",
+      "Object-Oriented Programming"
+    ],
     "github": "https://github.com/Mathewmsj",
-    "image": "/images/Gomoku.png",
-    "video": "/videos/gomoku-demo.mov",
+    "image": "/images/Gomoku.jpg",
+    "video": "/videos/gomoku-demo.mp4",
     "contribution": "Designed the game mechanics, implemented the core game logic in Java, created the user interface, and managed version control using Git."
   }
 ]
-
