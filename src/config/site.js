@@ -7,7 +7,7 @@ export const siteConfig = {
     subtitle: 'A high school innovator passionate about',
     subtitleHighlight: 'AI, robotics, and hands-on engineering',
     description: 'I love solving real-world problems with creativity and technology.',
-    avatar: 'images/home-background.png'
+    avatar: 'images/home-background.jpg'
   },
 
   // 首页按钮
