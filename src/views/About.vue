@@ -18,7 +18,7 @@
           <div class="education-card">
             <h3>{{ siteConfig.about.education.school }}</h3>
             <p class="period">{{ siteConfig.about.education.period }}</p>
-            <p class="gpa"><strong>GPA:</strong> {{ siteConfig.about.education.gpa }}</p>
+
             <div class="courses">
               <h4>Relevant Courses:</h4>
               <ul>

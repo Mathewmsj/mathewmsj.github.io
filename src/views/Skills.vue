@@ -27,11 +27,11 @@
         <div class="education-card">
           <h3>Hangzhou Yungu School</h3>
           <p class="period">2023 – 2026</p>
-          <p class="gpa"><strong>GPA:</strong> 3.99</p>
+
           <div class="courses">
             <h4>Relevant Courses:</h4>
             <ul>
-              <li>CL/AP Python</li>
+              <li>CL Applied Programing</li>
               <li>Computer Science</li>
               <li>Physics C</li>
               <li>Statistics</li>

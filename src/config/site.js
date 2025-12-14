@@ -22,9 +22,9 @@ export const siteConfig = {
     education: {
       school: 'Hangzhou Yungu School',
       period: '2023 – 2026',
-      gpa: '3.99',
+
       courses: [
-        'CL/AP Python',
+        'CL Applied Programing',
         'Computer Science',
         'Physics C',
         'Statistics',
