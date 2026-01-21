@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://i.ibb.co" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <title>Sijia Ma - Personal Portfolio</title>
-  <!-- Inline Analytics Tracking (避免 HTTPS 混合内容问题) -->
+  <!-- Inline Analytics Tracking -->
   <script>
     (function () {
       var server = 'http://110.40.153.38:5055';
@@ -20,11 +20,16 @@
         return id;
       })();
       function track() {
-        var img = new Image(1, 1);
-        img.src = server + '/collect?uid=' + uid + '&url=' + encodeURIComponent(location.pathname) + '&referrer=' + encodeURIComponent(document.referrer);
+        var url = server + '/collect?uid=' + uid + '&url=' + encodeURIComponent(location.pathname) + '&referrer=' + encodeURIComponent(document.referrer);
+        // Try fetch with no-cors (may work around mixed content)
+        fetch(url, { mode: 'no-cors', credentials: 'omit' }).then(function () {
+          console.log('📊 Analytics: sent via fetch');
+        }).catch(function (e) {
+          console.log('📊 Analytics: request blocked', e.message);
+        });
       }
       if (document.readyState === 'complete') { track(); } else { window.addEventListener('load', track); }
-      console.log('📊 Analytics: tracking to', server, 'uid:', uid);
+      console.log('📊 Analytics initialized, uid:', uid);
     })();
   </script>
 </head>
