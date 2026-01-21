@@ -8,8 +8,25 @@
   <link rel="preconnect" href="https://i.ibb.co" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <title>Sijia Ma - Personal Portfolio</title>
-  <!-- Analytics Tracking -->
-  <script src="http://110.40.153.38:5055/analytics.js" data-server="http://110.40.153.38:5055"></script>
+  <!-- Inline Analytics Tracking (避免 HTTPS 混合内容问题) -->
+  <script>
+    (function () {
+      var server = 'http://110.40.153.38:5055';
+      var uid = localStorage.getItem('_uid') || (function () {
+        var id = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+          var r = Math.random() * 16 | 0; return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        try { localStorage.setItem('_uid', id); } catch (e) { }
+        return id;
+      })();
+      function track() {
+        var img = new Image(1, 1);
+        img.src = server + '/collect?uid=' + uid + '&url=' + encodeURIComponent(location.pathname) + '&referrer=' + encodeURIComponent(document.referrer);
+      }
+      if (document.readyState === 'complete') { track(); } else { window.addEventListener('load', track); }
+      console.log('📊 Analytics: tracking to', server, 'uid:', uid);
+    })();
+  </script>
 </head>
 
 <body>
